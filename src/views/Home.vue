@@ -1,18 +1,50 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div>
+        <PeopleList v-bind:peopleData="people"/>
+    </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import PeopleList from '@/components/PeopleList'
 
-export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
+export default {    
+    components:
+    {
+        PeopleList
+    },
+    data() {
+        return {
+             people: [
+                {
+                id: 1,
+                name: "Nikita",
+                secondname: "Vedernikov",
+                thirdname: "Aleksandrovich",
+                email: "soloistcsgo@yandex.ru",
+                reports: 
+                {
+                    id_report: 1,
+                    title: "Some message",
+                    date: Date.parse("2020-09-03"),
+                    hoursElapsed: 4
+                }
+                },
+                {
+                id: 2,
+                name: "NonValidOne",
+                secondname: "NonValidOne",
+                thirdname: "NonValidOne",
+                email: "NonValidOne@yandex.ru",
+                reports: 
+                {
+                    id_report: "23ad",
+                    title: "Some message",
+                    date: Date.parse("2020/03/03"),
+                    hoursElapsed: "12d"
+                }
+                }
+            ]
+        }
+    },
 }
 </script>
